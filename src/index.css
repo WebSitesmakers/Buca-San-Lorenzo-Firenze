@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Design Tokens ── */
+:root {
+  --cream: #F4EFEA;
+  --warm-brown: #5A3E36;
+  --gold: #C7A14A;
+  --charcoal: #1E1E1E;
+  --ease-premium: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ── Base ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--cream);
+  color: var(--charcoal);
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ── Noise Overlay ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* ── Utilities ── */
+.font-serif {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-sans {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* ── Buttons ── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--warm-brown);
+  color: var(--cream);
+  padding: 0.875rem 2rem;
+  border-radius: 9999px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: transform 0.3s var(--ease-premium), background-color 0.3s var(--ease-premium), box-shadow 0.3s var(--ease-premium);
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary:hover {
+  transform: scale(1.02);
+  background-color: #4a322a;
+  box-shadow: 0 8px 30px rgba(90, 62, 54, 0.35);
+}
+
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--gold);
+  color: #fff;
+  padding: 0.875rem 2rem;
+  border-radius: 9999px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: transform 0.3s var(--ease-premium), background-color 0.3s var(--ease-premium), box-shadow 0.3s var(--ease-premium);
+  cursor: pointer;
+  border: none;
+}
+
+.btn-gold:hover {
+  transform: scale(1.02);
+  background-color: #b08d3e;
+  box-shadow: 0 8px 30px rgba(199, 161, 74, 0.4);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  color: var(--cream);
+  padding: 0.75rem 1.75rem;
+  border-radius: 9999px;
+  border: 1.5px solid rgba(244, 239, 234, 0.6);
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: transform 0.3s var(--ease-premium), border-color 0.3s var(--ease-premium), background-color 0.3s var(--ease-premium);
+  cursor: pointer;
+}
+
+.btn-outline:hover {
+  transform: scale(1.02);
+  background-color: rgba(244, 239, 234, 0.1);
+  border-color: var(--cream);
+}
+
+/* ── Nav Link ── */
+.nav-link {
+  position: relative;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.3s var(--ease-premium), transform 0.3s var(--ease-premium);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--gold);
+  transition: width 0.3s var(--ease-premium);
+}
+
+.nav-link:hover {
+  transform: translateY(-1px);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ── Cards ── */
+.card-valore {
+  background-color: #fff;
+  border-radius: 1.5rem;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 4px 24px rgba(30, 30, 30, 0.06);
+  transition: transform 0.4s var(--ease-premium), box-shadow 0.4s var(--ease-premium);
+}
+
+.card-valore:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(30, 30, 30, 0.1);
+}
+
+/* ── Step Cards (Metodo) ── */
+.step-card {
+  background-color: #fff;
+  border-radius: 1.5rem;
+  padding: 3rem;
+  box-shadow: 0 8px 32px rgba(30, 30, 30, 0.08);
+  position: sticky;
+  top: 120px;
+  transition: transform 0.5s var(--ease-premium), opacity 0.5s var(--ease-premium);
+}
+
+/* ── Gold accent line ── */
+.gold-line {
+  display: block;
+  width: 40px;
+  height: 2px;
+  background-color: var(--gold);
+  margin-bottom: 1.5rem;
+}
+
+/* ── Section Spacing ── */
+.section-padding {
+  padding: 6rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding: 8rem 2rem;
+  }
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--warm-brown);
+  border-radius: 3px;
+}
+
+/* ── Selection ── */
+::selection {
+  background-color: var(--gold);
+  color: #fff;
+}
